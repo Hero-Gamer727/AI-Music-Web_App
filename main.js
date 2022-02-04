@@ -1,5 +1,9 @@
 song="";
 song2="";
+rightwristX=0;
+rightwristY=0;
+leftwristX=0;
+leftwristY=0;
 
 function preload(){
     song = loadSound("music.mp3");
@@ -31,5 +35,12 @@ function preload(){
         function gotPoses(results){
             if(results.length>0){
         console.log(results);
+        leftwristX=results[0].pose.leftWrist.x-25;
+leftwristY=results[0].pose.leftWrist.y;
+rightwristX=results[0].pose.rightWrist.x;
+rightwristY=results[0].pose.rightWrist.y;
+
+console.log("rightwristX = "+rightwristX+"  rightwristY = "+rightwristY);
+console.log("leftwristX = "+leftwristX+"  leftwristY = "+leftwristY);
             }
         }

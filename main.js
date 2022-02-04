@@ -13,7 +13,7 @@ function preload(){
         canvas.center();
         canvas.background("black");
         video=createCapture(VIDEO);
-        video.hide()
+        video.hide();
         
         
         }

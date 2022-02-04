@@ -13,11 +13,23 @@ function preload(){
         canvas.center();
         canvas.background("black");
         video=createCapture(VIDEO);
-        video.hide();
-        
+        video.hide()
+        poseNet = ml5.poseNet(video,modelLoaded);
+        poseNet.on('pose',gotPoses);
         
         }
 
         function draw(){
             image(video,0,0,600,500);
+        }
+
+        function modelLoaded(){
+            console.log("Model Loaded!");
+        }
+
+
+        function gotPoses(results){
+            if(results.length>0){
+        console.log(results);
+            }
         }
